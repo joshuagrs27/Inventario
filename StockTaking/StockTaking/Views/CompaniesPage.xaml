@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.CompaniesPage">
+
+
+    <!--Binding Context-->
+    <ContentPage.BindingContext>
+        <local:CompaniesViewModel/>
+    </ContentPage.BindingContext>
+    
+    <!---->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding ADDNEWCOMPANY}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Welcome to the Companies Page"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
