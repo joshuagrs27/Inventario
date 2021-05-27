@@ -1,6 +1,8 @@
-﻿using StockTaking.Services;
+﻿using StockTaking.Models;
+using StockTaking.Services;
 using StockTaking.Views;
 using System;
+using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -8,6 +10,20 @@ namespace StockTaking
 {
     public partial class App : Application
     {
+        //
+        static Database database;
+        //
+        public static Database Database
+        {
+            get
+            {
+                if (database == null)
+                {
+                    database = new Database(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "stock.db3"));
+                }
+                return database;
+            }
+        }
 
         public App()
         {

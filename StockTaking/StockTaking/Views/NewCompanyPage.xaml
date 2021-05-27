@@ -13,10 +13,112 @@
 
     
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to New Company Page!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid
+            RowDefinitions="*,*,*,*,*,*"
+            ColumnDefinitions="*,*"
+            >
+
+            <!--Label and Entry for Company Name-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Company Name"
+                TextColor="Black"
+                />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding CompanyName}"
+                />
+            
+            <!--Label and Entry for Company Description-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Description"
+                TextColor="Black"
+                />
+            <Editor
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding CompanyDescription}"
+                />
+            
+            <!--Label and Entry for Admin Username-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Administrator Username"
+                TextColor="Black"
+                />
+            <Entry
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding CompanyAdminUsername}"
+                />
+            
+            <!--Label and Entry for Admin Password-->
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Administrator Password"
+                TextColor="Black"
+                />
+            <Entry
+                Grid.Row="3"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                IsPassword="True"
+                Text="{Binding CompanyAdminUserpassword}"
+                />
+            
+            <!--Label and Entry for Confirming Password-->
+            <Label
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="Confirm Password"
+                TextColor="Black"
+                />
+            <Entry
+                Grid.Row="4"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                IsPassword="True"
+                Text="{Binding ConfirmPassword}"
+                />
+            
+            <!--Buttons for Canceling and Saving a Company-->
+            <Button
+                Grid.Row="5"
+                Grid.Column="0"
+                Text="Cancel"
+                Command="{Binding CANCEL_COMMAND}"
+                />
+            <Button
+                Grid.Row="5"
+                Grid.Column="1"
+                Text="Save"
+                Command="{Binding SAVE_COMPANY_COMMAND}"
+                />
+            
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
