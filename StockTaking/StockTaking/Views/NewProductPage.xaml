@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.NewProductPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Product"
+             >
+    <!--Binding the View to the ViewModel-->
+    <ContentPage.BindingContext>
+        <local:NewProductViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,*,*"
+            ColumnDefinitions="*,*">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="New Product"
+                TextColor="Black"
+                FontSize="Title"
+                />
+            <!--Label & Entry for Product Name-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Name"/>
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding ProductName}"
+                />
+            <!--Label & Editor for Product Description-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Description"/>
+            <Editor
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding ProductDescription}"
+                />
+            <!--Buttons for Saving or Cancelling-->
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Save"
+                Command="{Binding SAVE_PRODUCT_COMMAND}"
+                />
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="Cancel"
+                Command="{Binding CANCEL_COMMAND}"
+                />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

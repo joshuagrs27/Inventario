@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.ProductDetailsPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="Product Details">
+    
+    <!--Binding Context-->
+    <ContentPage.BindingContext>
+        <local:ProductDetailsViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,*,*,*"
+            ColumnDefinitions="*,*,*">
+            
+            <!--Label and Entry for Product Name-->
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Text="Name"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{Binding Product_A.Product_Name}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                IsReadOnly="True"
+                />
+            <!--Label and Entry for Product Description-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Description"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Editor
+                Grid.Row="1"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{Binding Product_A.Product_Description}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                IsReadOnly="True"
+                />
+            <!--Label and Entry for Current Level-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Current Level"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{Binding Product_A.Product_Level}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                IsReadOnly="True"
+                />
+            <!--Label and Entry for Current Stock-->
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Stock Count"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="3"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{Binding Product_A.Product_Current_Stock}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                IsReadOnly="True"
+                />
+            
+            <!--Buttons For Edit Saving and Back-->
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                Text="Save"
+                />
+            <Button
+                Grid.Row="4"
+                Grid.Column="1"
+                Text="Edit"
+                />
+            <Button
+                Grid.Row="4"
+                Grid.Column="2"
+                Text="Back"
+                />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -97,11 +97,21 @@ namespace StockTaking.ViewModels
                 newCompanyObj.Company_Admin_Password = CompanyAdminUserpassword;
                 //Check if Company Already Exists
                 bool checker =  await CheckDuplicate_F();
-                //
+                
                 if (checker)
                 {
                     //Save To Database
                     await App.Database.SaveCompanyAsync(newCompanyObj);
+                    //Get Back the Company From The Database Since it will have a valid ID
+                    newCompanyObj = await App.Database.SearchCompanyAsync(newCompanyObj.Company_Name);
+                    //Create a User Object to put the Admin In
+                    User newUserObj = new User();
+                    newUserObj.User_Company_ID = newCompanyObj.Company_Id;
+                    newUserObj.User_Name = newCompanyObj.Company_Admin_Username;
+                    newUserObj.User_Password = newCompanyObj.Company_Admin_Password;
+                    newUserObj.User_Permission = "ADMIN-RIGHTS";
+                    //Save the Administrator to the Database
+                    await App.Database.SaveUserAsync(newUserObj);
                     //
                     await App.Current.MainPage.DisplayAlert("Success", "Company Successfully Saved", "Ok");
                     //

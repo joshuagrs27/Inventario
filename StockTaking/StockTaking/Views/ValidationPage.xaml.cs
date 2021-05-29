@@ -11,20 +11,22 @@ using Xamarin.Forms.Xaml;
 namespace StockTaking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class CompaniesPage : ContentPage
+    public partial class ValidationPage : ContentPage
     {
-        public CompaniesPage()
+        public ValidationPage()
         {
             InitializeComponent();
         }
+
         //
         protected override void OnAppearing()
         {
+            //
             base.OnAppearing();
-            var vm = BindingContext as CompaniesViewModel;
+            var vm = BindingContext as ValidationViewModel;
             //
             vm.OnAppearing();
-
         }
+        //
     }
 }

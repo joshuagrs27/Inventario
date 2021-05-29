@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.ValidationPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="Login">
+
+    <ContentPage.BindingContext>
+        <local:ValidationViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,*,*"
+            ColumnDefinitions="*,*">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="{Binding ValidCompany.Company_Name}"
+                TextColor="Black"
+                />
+            <!--Label & Entry for Username-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                TextColor="Black"
+                Text="Username"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding Username}"
+                />
+            <!--Label & Entry for Password-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                TextColor="Black"
+                Text="Password"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding Userpassword}"
+                IsPassword="True"
+                />
+            <!--Buttons for Logging In or Cncelling-->
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="Login"
+                Command="{Binding LOGIN_COMMAND}"
+                />
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="Cancel"
+                Command="{Binding CANCEL_COMMAND}"
+                />
+
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

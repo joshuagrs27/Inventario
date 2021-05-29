@@ -25,6 +25,37 @@ namespace StockTaking
             }
         }
 
+        //Global Variable for CurrentCompany
+        public static Company currentCompany = new Company();
+        public static Company CurrentCompany
+        {
+            get => currentCompany;
+            set
+            {
+                currentCompany = value;
+            }
+        }
+        //Global Variable for CurrentUser
+        public static User currentUser = new User();
+        public static User CurrentUser
+        {
+            get => currentUser;
+            set
+            {
+                currentUser = value;
+            }
+        }
+        //
+        public static Product currentProduct = new Product();
+        public static Product CurrentProduct
+        {
+            get => currentProduct;
+            set
+            {
+                currentProduct = value;
+            }
+        }
+
         public App()
         {
             InitializeComponent();

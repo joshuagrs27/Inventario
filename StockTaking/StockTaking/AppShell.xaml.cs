@@ -16,12 +16,15 @@ namespace StockTaking
 
             //Registering Routes for Special Pages
             Routing.RegisterRoute(nameof(NewCompanyPage), typeof(NewCompanyPage));
+            Routing.RegisterRoute(nameof(ValidationPage), typeof(ValidationPage));
+            Routing.RegisterRoute(nameof(NewProductPage), typeof(NewProductPage));
+            Routing.RegisterRoute(nameof(ProductDetailsPage), typeof(ProductDetailsPage));
 
         }
 
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
-            await Shell.Current.GoToAsync("//LoginPage");
+            await Shell.Current.GoToAsync("//StartPage");
         }
     }
 }

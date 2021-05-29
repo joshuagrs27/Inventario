@@ -2,25 +2,26 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
-             x:Class="StockTaking.Views.CompaniesPage">
-
-
-    <!--Binding Context-->
-    <ContentPage.BindingContext>
-        <local:CompaniesViewModel/>
-    </ContentPage.BindingContext>
+             x:Class="StockTaking.Views.ProductsPage">
     
-    <!---->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding ADDNEWCOMPANY}" />
-    </ContentPage.ToolbarItems>
+    <!--Binding the View to the View Model-->
+    <ContentPage.BindingContext>
+        <local:ProductsViewModel/>
+    </ContentPage.BindingContext>
 
+    <!--Toolbar Buttons-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add Product" Command="{Binding ADD_NEW_PRODUCT_COMMAND}" />
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*">
+            RowDefinitions="*"
+            >
             <CollectionView
                 Grid.Row="0"
-                ItemsSource="{Binding CompanyCollection}">
+                ItemsSource="{Binding ProductCollection}"
+                >
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame 
@@ -29,11 +30,12 @@
                             BorderColor="Black"
                             Padding="1" 
                             HeightRequest="100" 
-                            BackgroundColor="Aqua">
+                            BackgroundColor="RosyBrown"
+                            >
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                         NumberOfTapsRequired="1"
-                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:CompaniesViewModel}}, Path=ItemTapped}"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:ProductsViewModel}}, Path=ItemTapped}"
                                         CommandParameter="{Binding .}">
 
                                 </TapGestureRecognizer>
@@ -41,8 +43,7 @@
                             <Label
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
-                                Text="{Binding Company_Name}"
-                                TextColor="Black"
+                                Text="{Binding Product_Name}"
                                 />
                         </Frame>
                     </DataTemplate>

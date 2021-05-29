@@ -9,5 +9,11 @@ namespace StockTaking.Models
     {
         [PrimaryKey, AutoIncrement]
         public int Product_Id { get; set; }
+        public string Product_Name { get; set; }
+        public string Product_Description { get; set; }
+        public int Product_CompanyID { get; set; }
+        public int Product_Current_Stock { get; set; }
+        public string Product_Level { get; set; }
+
     }
 }
