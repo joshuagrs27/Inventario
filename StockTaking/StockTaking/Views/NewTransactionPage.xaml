@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.NewTransactionPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New Transaction">
+
+    <!--Binding the View to the ViewModel-->
+    <ContentPage.BindingContext>
+        <local:NewTransactionViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,*,*,*,*,*"
+            ColumnDefinitions="*,*">
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Text="New Transaction"
+                TextColor="Black"
+                FontSize="Title"
+                />
+            <!--Label & Entry for Product Name-->
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Transaction Type"/>
+            <Picker
+                Grid.Row="1"
+                Grid.Column="1"
+                TitleColor="Black"
+                Title="Product"
+                TextColor="Black"
+                ItemsSource="{Binding LevelsList}"
+                ItemDisplayBinding="{Binding Levelvalue}"
+                SelectedItem="{Binding PriorityLevel}"
+                />
+            <!--Label & Editor for Product Description-->
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Select Date"/>
+            <DatePicker
+                Grid.Row="2"
+                Grid.Column="1"
+                MinimumDate="01/01/2021"
+                MaximumDate="12/31/2022"
+                HorizontalOptions='CenterAndExpand'
+                Date="{Binding NewDate}"
+                TextColor="Black"
+                BackgroundColor="AntiqueWhite"
+                />
+            <!--Picker for Product-->
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Select Product"/>
+            <Picker
+                Grid.Row="3"
+                Grid.Column="1"
+                TitleColor="Black"
+                Title="Product"
+                TextColor="Black"
+                ItemsSource="{Binding ProductList}"
+                ItemDisplayBinding="{Binding Product_Name}"
+                SelectedItem="{Binding ProductSelected}"
+                />
+            <!---->
+            <Label
+                Grid.Row="4"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Amount"
+                />
+            <Entry
+                Grid.Row="4"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                />
+            <!---->
+            <Label
+                Grid.Row="5"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Notes"
+                />
+            <Entry
+                Grid.Row="5"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                />
+            <!--Buttons for Saving or Cancelling-->
+            <Button
+                Grid.Row="6"
+                Grid.Column="0"
+                Text="Save"
+                Command="{Binding SAVE_TRANSACTION_COMMAND}"
+                />
+            <Button
+                Grid.Row="6"
+                Grid.Column="1"
+                Text="Cancel"
+                Command="{Binding CANCEL_COMMAND}"
+                />
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

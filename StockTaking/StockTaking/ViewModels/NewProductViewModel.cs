@@ -61,6 +61,8 @@ namespace StockTaking.ViewModels
                 productObj.Product_Name = ProductName;
                 productObj.Product_Description = ProductDescription;
                 productObj.Product_CompanyID = App.CurrentCompany.Company_Id;
+                productObj.Product_Current_Stock = 0;
+                productObj.Product_Level = "EMPTY";
                 //Save the Administrator to the Database
                 await App.Database.SaveProductAsync(productObj);
                 //

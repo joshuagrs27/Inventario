@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.ActivityPage">
+
+    <ContentPage.BindingContext>
+        <local:ActivityViewModel/>
+    </ContentPage.BindingContext>
+
+    <!---->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding ADD_NEW_TRANSACTION}" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*">
+            <CollectionView
+                ItemsSource="{Binding TransactionCollection}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame>
+                            <StackLayout>
+                                <Label
+                                Text="{Binding Transaction_Product_Name}"
+                                />
+                                <Label
+                                Text="{Binding Transaction_Date}"
+                                />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

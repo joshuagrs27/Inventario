@@ -14,7 +14,7 @@
     
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*,*,*,*,*"
+            RowDefinitions="*,*,*,*,*,*"
             ColumnDefinitions="*,*,*">
             
             <!--Label and Entry for Product Name-->
@@ -30,10 +30,10 @@
                 Grid.Row="0"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Text="{Binding Product_A.Product_Name}"
+                Text="{Binding ProductName}"
                 TextColor="Black"
                 VerticalOptions="Center"
-                IsReadOnly="True"
+                IsEnabled="{Binding Edit_Enable}"
                 />
             <!--Label and Entry for Product Description-->
             <Label
@@ -48,10 +48,10 @@
                 Grid.Row="1"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
-                Text="{Binding Product_A.Product_Description}"
+                Text="{Binding ProductDescription}"
                 TextColor="Black"
                 VerticalOptions="Center"
-                IsReadOnly="True"
+                IsEnabled="{Binding Edit_Enable}"
                 />
             <!--Label and Entry for Current Level-->
             <Label
@@ -69,7 +69,7 @@
                 Text="{Binding Product_A.Product_Level}"
                 TextColor="Black"
                 VerticalOptions="Center"
-                IsReadOnly="True"
+                IsEnabled="False"
                 />
             <!--Label and Entry for Current Stock-->
             <Label
@@ -87,7 +87,7 @@
                 Text="{Binding Product_A.Product_Current_Stock}"
                 TextColor="Black"
                 VerticalOptions="Center"
-                IsReadOnly="True"
+                IsEnabled="False"
                 />
             
             <!--Buttons For Edit Saving and Back-->
@@ -95,16 +95,26 @@
                 Grid.Row="4"
                 Grid.Column="0"
                 Text="Save"
+                Command="{Binding SAVE_PRODUCT_COMMAND}"
                 />
             <Button
                 Grid.Row="4"
                 Grid.Column="1"
                 Text="Edit"
+                Command="{Binding EDIT_PRODUCT_COMMAND}"
                 />
             <Button
                 Grid.Row="4"
                 Grid.Column="2"
+                Text="Delete"
+                Command="{Binding DELETE_PRODUCT_COMMAND}"
+                />
+            <Button
+                Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="3"
                 Text="Back"
+                Command="{Binding BACK_COMMAND}"
                 />
 
         </Grid>

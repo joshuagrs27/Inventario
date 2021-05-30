@@ -19,6 +19,7 @@ namespace StockTaking
             Routing.RegisterRoute(nameof(ValidationPage), typeof(ValidationPage));
             Routing.RegisterRoute(nameof(NewProductPage), typeof(NewProductPage));
             Routing.RegisterRoute(nameof(ProductDetailsPage), typeof(ProductDetailsPage));
+            Routing.RegisterRoute(nameof(NewTransactionPage), typeof(NewTransactionPage));
 
         }
 
