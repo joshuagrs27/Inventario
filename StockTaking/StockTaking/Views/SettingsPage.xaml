@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.SettingsPage">
+
+
+    <!--Toolbar Buttons-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add User" Command="{Binding ADD_NEW_USER_COMMAND}" />
+    </ContentPage.ToolbarItems>
+    
+    <ContentPage.BindingContext>
+        <local:SettingsViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="50,*">
+            <StackLayout
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                Grid.Row="0"
+                Orientation="Horizontal">
+                <Label
+                    Text="Name:"
+                    TextColor="Black"/>
+                <Label
+                    Text="{Binding UserA.User_Name}"/>
+                <Label
+                    Text="Password:"
+                    TextColor="Black"/>
+                <Label
+                    Text="{Binding UserA.User_Password}"/>
+            </StackLayout>
+            <CollectionView
+                Grid.Row="1"
+                ItemsSource="{Binding UserList}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame BorderColor="Black">
+                            <StackLayout Orientation="Horizontal">
+                                <Label
+                                    TextColor="Black"
+                                    Text="{Binding User_Name}"/>
+                                <Label
+                                    TextColor="Black"
+                                    Text="{Binding User_Permission}"/>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

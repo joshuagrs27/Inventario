@@ -53,7 +53,11 @@ namespace StockTaking.ViewModels
         //Function for Going to Add Product Page
         public async void GotoNewProductPage_F()
         {
-            //
+            if (App.CurrentUser.User_Permission == "TRANSACTION-RIGHTS")
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                return;
+            }
             //Go to new Company Page
             await Shell.Current.GoToAsync(nameof(NewProductPage));
         }
@@ -61,6 +65,11 @@ namespace StockTaking.ViewModels
         //Function when Product is Selected
         public async void OnProductSelected_F(Product product)
         {
+            if (App.CurrentUser.User_Permission == "TRANSACTION-RIGHTS")
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                return;
+            }
             //Set the Global Current Product
             App.CurrentProduct = product;
             //Go to Product Details Page

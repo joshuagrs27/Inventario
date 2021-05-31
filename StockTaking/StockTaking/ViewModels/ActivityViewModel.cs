@@ -48,6 +48,11 @@ namespace StockTaking.ViewModels
         //----CUSTOM FUNCTIONS---\\
         public async void OnTransactionSelected_F(Transaction transaction)
         {
+            if (App.CurrentUser.User_Permission == "PRODUCTS-RIGHTS")
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                return;
+            }
             //
             App.CurrentTransaction = transaction;
             //Go to nEdit Transaction Page
@@ -56,6 +61,11 @@ namespace StockTaking.ViewModels
         //
         public async void NewTransaction_F()
         {
+            if(App.CurrentUser.User_Permission == "PRODUCTS-RIGHTS")
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                return;
+            }
             //Go to new Company Page
             await Shell.Current.GoToAsync(nameof(NewTransactionPage));
         }

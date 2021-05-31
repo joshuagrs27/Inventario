@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:StockTaking.ViewModels"
+             x:Class="StockTaking.Views.NewUserPage"
+             Shell.PresentationMode="ModalAnimated"
+             Title="New User">
+
+    <ContentPage.BindingContext>
+        <local:NewUserViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Content>
+        <Grid
+            RowDefinitions="*,*,*,*"
+            ColumnDefinitions="*,*">
+
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Username"
+                />
+            <Entry
+                Grid.Row="0"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding UserName}"
+                />
+
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Text="Password"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="1"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding UserPassword}"
+                IsPassword="True"
+                />
+
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Text="Permissions"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                TextColor="Black"
+                
+                />
+            <Picker
+                Grid.Row="2"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TitleColor="Black"
+                Title="Choose Permission"
+                TextColor="Black"
+                ItemsSource="{Binding PermissionTypes}"
+                ItemDisplayBinding="{Binding P_Value}"
+                SelectedItem="{Binding ChosenPermission}"
+                />
+            <Button
+                Grid.Row="3"
+                Grid.Column="0"
+                Text="save"
+                Command="{Binding SAVE_USER_COMMAND}"
+                />
+            <Button
+                Grid.Row="3"
+                Grid.Column="1"
+                Text="cancel"
+                Command="{Binding CANCEL_COMMAND}"
+                />
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

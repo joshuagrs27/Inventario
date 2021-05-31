@@ -14,6 +14,7 @@ namespace StockTaking.ViewModels
         public MainViewModel()
         {
             //
+            StartAlerts_F();
             
         }
         //
@@ -44,22 +45,6 @@ namespace StockTaking.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        private readonly ChartEntry[] entries = new[]
-        {
-            new ChartEntry(212)
-            {
-                Label = "UWP",
-                ValueLabel = "112",
-                Color = SKColor.Parse("#2c3e50")
-            },
-            new ChartEntry(248)
-            {
-                Label = "Android",
-                ValueLabel = "648",
-                Color = SKColor.Parse("#77d065")
-            }
-        };
 
         private List<ChartEntry> entries1;
         public List<ChartEntry> Entries1
@@ -126,9 +111,26 @@ namespace StockTaking.ViewModels
             Entries1 = source;
             MakeChart_F();
 
+        }
 
-
-
+        public async void StartAlerts_F()
+        {
+            List<Product> tempCollection = await App.Database.GetProductsAsync();
+            var tempStrings = new List<string>();
+            foreach(var product in tempCollection)
+            {
+                if(product.Product_Current_Stock <= 50)
+                {
+                    tempStrings.Add(product.Product_Name);
+                }
+            }
+            string temp = String.Join(String.Empty, tempStrings.ToArray());
+            if (tempStrings != null)
+            {
+                await App.Current.MainPage.DisplayAlert("Warning", 
+                    "The following Products are Low: "+ temp +"Got to the Alerts Page for More", 
+                    "ok");
+            }
         }
     }
 
