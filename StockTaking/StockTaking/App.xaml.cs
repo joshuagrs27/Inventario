@@ -55,6 +55,16 @@ namespace StockTaking
                 currentProduct = value;
             }
         }
+        //
+        public static Transaction currentTransaction = new Transaction();
+        public static Transaction CurrentTransaction
+        {
+            get => currentTransaction;
+            set
+            {
+                currentTransaction = value;
+            }
+        }
 
         public App()
         {

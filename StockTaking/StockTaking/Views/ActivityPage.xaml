@@ -21,14 +21,45 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:ActivityViewModel}}, Path=ItemTapped}"
+                                        CommandParameter="{Binding .}">
+
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
                             <StackLayout>
-                                <Label
-                                Text="{Binding Transaction_Product_Name}"
-                                />
-                                <Label
-                                Text="{Binding Transaction_Date}"
-                                />
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                         Text="Product:"/>
+                                    <Label
+                                        Text="{Binding Transaction_Product_Name}"
+                                        />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                         Text="Type:"/>
+                                    <Label
+                                        Text="{Binding Transaction_Type}"
+                                        />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                         Text="Amount:"/>
+                                    <Label
+                                        Text="{Binding Transaction_Amount}"
+                                        />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label
+                                         Text="Date:"/>
+                                    <Label
+                                        Text="{Binding Transaction_Date}"
+                                        />
+                                </StackLayout>
                             </StackLayout>
+                            
                         </Frame>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

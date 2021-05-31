@@ -11,16 +11,18 @@ using Xamarin.Forms.Xaml;
 namespace StockTaking.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : ContentPage
+    public partial class EditTransactionPage : ContentPage
     {
-        public MainPage()
+        public EditTransactionPage()
         {
             InitializeComponent();
         }
+        //
+        //
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            var vm = BindingContext as MainViewModel;
+            var vm = BindingContext as EditTransactionViewModel;
             //
             vm.OnAppearing();
 

@@ -111,6 +111,13 @@ namespace StockTaking.Models
             //return _database.FindWithQueryAsync<Plan>($"SELECT * FROM [Plan] WHERE PlanTitle = {planName}");
             return _database.FindWithQueryAsync<Company>("SELECT * FROM Company WHERE Company_Name = ?", companyName);
         }
+        //Search for Product Function
+        public Task<Product> SearchProductAsync(string productName)
+        {
+            //return _database.FindWithQueryAsync<Plan>($"SELECT * FROM [Plan] WHERE PlanTitle = {planName}");
+            return _database.FindWithQueryAsync<Product>("SELECT * FROM Product WHERE Product_Name = ?", productName);
+        }
+
 
         /*
         public Task<Book> SearchBookAsync(string bookName)

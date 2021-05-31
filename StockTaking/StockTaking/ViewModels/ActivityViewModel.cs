@@ -48,7 +48,10 @@ namespace StockTaking.ViewModels
         //----CUSTOM FUNCTIONS---\\
         public async void OnTransactionSelected_F(Transaction transaction)
         {
-
+            //
+            App.CurrentTransaction = transaction;
+            //Go to nEdit Transaction Page
+            await Shell.Current.GoToAsync(nameof(EditTransactionPage));
         }
         //
         public async void NewTransaction_F()

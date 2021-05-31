@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StockTaking.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace StockTaking.Views
         public ActivityPage()
         {
             InitializeComponent();
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            var vm = BindingContext as ActivityViewModel;
+            //
+            vm.OnAppearing();
+
         }
     }
 }

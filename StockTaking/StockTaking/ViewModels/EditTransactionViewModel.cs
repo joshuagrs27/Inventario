@@ -8,20 +8,20 @@ using Xamarin.Forms;
 
 namespace StockTaking.ViewModels
 {
-    public class NewTransactionViewModel:BindableObject
+    public class EditTransactionViewModel:BindableObject
     {
-        //Consructor
-        public NewTransactionViewModel()
+        //Constructor
+        public EditTransactionViewModel()
         {
             CANCEL_COMMAND = new Command(Cancel_F);
             //
             SAVE_TRANSACTION_COMMAND = new Command(SaveTransaction_F);
-            
         }
-        //
+
         public async void OnAppearing()
         {
-
+            TheTransaction = App.CurrentTransaction;
+            //
             //Get Products for Current Company
             List<Product> tempProducts = new List<Product>();
             var collection = await App.Database.GetProductsAsync();
@@ -34,18 +34,31 @@ namespace StockTaking.ViewModels
             }
             ProductList = new ObservableCollection<Product>();
             ProductList = tempProducts;
-            ////Get Transaction Type 
-            MakePickerData_F();
-
+            //
+            IList<Models.Picker> tempValues = new List<Models.Picker>();
+            tempValues.Add(new Models.Picker { Value_Data = "IN" });
+            tempValues.Add(new Models.Picker { Value_Data = "OUT" });
+            TransactionsTypes = new ObservableCollection<Models.Picker>();
+            TransactionsTypes = tempValues;
         }
-        //------COMMANDS-----\\
+
+        //---   COMMANDS ---\\
         public Command SAVE_TRANSACTION_COMMAND { get; }
         public Command CANCEL_COMMAND { get; }
-
-        //----getters and setters---\\
+        //--Getters and Setters--\\
+        public Transaction theTransaction;
+        public Transaction TheTransaction
+        {
+            get => theTransaction;
+            set
+            {
+                theTransaction = value;
+                OnPropertyChanged();
+            }
+        }
         //
-        private string amount;
-        public string Amount
+        private int amount;
+        public int Amount
         {
             get => amount;
             set
@@ -76,7 +89,7 @@ namespace StockTaking.ViewModels
             }
         }
         //
-        private IList<Product> productList;
+        private IList<Product> productList = new List<Product>();
         public IList<Product> ProductList
         {
             get => productList;
@@ -87,7 +100,7 @@ namespace StockTaking.ViewModels
             }
         }
         //
-        private Product productSelected;
+        private Product productSelected = new Product();
         public Product ProductSelected
         {
             get => productSelected;
@@ -98,7 +111,7 @@ namespace StockTaking.ViewModels
             }
         }
         //
-        public IList<Models.Picker> transactionTypes;
+        public IList<Models.Picker> transactionTypes = new List<Models.Picker>();
         public IList<Models.Picker> TransactionsTypes
         {
             get => transactionTypes;
@@ -109,7 +122,7 @@ namespace StockTaking.ViewModels
             }
         }
         //
-        private Models.Picker chosenTransaction;
+        private Models.Picker chosenTransaction = new Models.Picker();
         public Models.Picker ChosenTransaction
         {
             get => chosenTransaction;
@@ -120,39 +133,25 @@ namespace StockTaking.ViewModels
             }
         }
 
-        //Custom Function
-        public async void Cancel_F()
-        {
-            // This will pop the current page off the navigation stack
-            await Shell.Current.GoToAsync("..");
-        }
-
-        public void MakePickerData_F()
-        {
-            IList<Models.Picker> tempValues = new List<Models.Picker>();
-            tempValues.Add(new Models.Picker { Value_Data = "IN" });
-            tempValues.Add(new Models.Picker { Value_Data = "OUT" });
-            TransactionsTypes = new ObservableCollection<Models.Picker>();
-            TransactionsTypes = tempValues;
-        }
-
+        ////////////////
         public async void SaveTransaction_F()
         {
+
             bool ans = await Validate_F();
             //
             if (ans)
             {
                 Transaction transObj = new Transaction();
                 //
+                transObj = TheTransaction;
                 transObj.Transaction_Amount = Convert.ToInt32(Amount);
                 transObj.Transaction_Date = NewDate;
-                transObj.Transaction_Company_ID = App.CurrentCompany.Company_Id;
                 transObj.Transaction_Notes = Notes;
                 transObj.Transaction_Type = ChosenTransaction.Value_Data;
                 transObj.Transaction_Product_Name = ProductSelected.Product_Name;
                 transObj.Transaction_Product_ID = ProductSelected.Product_Id;
                 //
-                await App.Database.SaveTransactionAsync(transObj);
+                await App.Database.EditTransactionAsync(transObj);
                 //
                 UpdateProduct_F(ProductSelected);
                 //
@@ -160,38 +159,19 @@ namespace StockTaking.ViewModels
                 //
                 Cancel_F();
             }
-            
+
         }
-        //
-        public async void UpdateProduct_F(Product product)
-        {
-            Product affectedProduct = new Product();
-            affectedProduct = await App.Database.SearchProductAsync(product.Product_Name);
-            affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock + Convert.ToInt32(Amount);
-            if(affectedProduct.Product_Current_Stock <= 50)
-            {
-                affectedProduct.Product_Level = "LOW";
-            }
-            if (affectedProduct.Product_Current_Stock > 50)
-            {
-                affectedProduct.Product_Level = "HIGH";
-            }
-            //
-            await App.Database.EditProductAsync(affectedProduct);
-            //
-        }
-        //
         public async Task<bool> Validate_F()
         {
             bool ans2 = true;
             //
-            if(ChosenTransaction == null)
+            if (ChosenTransaction == null)
             {
                 ans2 = false;
                 await App.Current.MainPage.DisplayAlert("Alert", "Choose Transaction Type", "back");
                 return ans2;
             }
-            if(NewDate == null)
+            if (NewDate == null)
             {
                 ans2 = false;
                 await App.Current.MainPage.DisplayAlert("Alert", "Choose Date", "back");
@@ -203,7 +183,7 @@ namespace StockTaking.ViewModels
                 await App.Current.MainPage.DisplayAlert("Alert", "Choose Product", "back");
                 return ans2;
             }
-            if (Amount == null)
+            if (Amount <= 0)
             {
                 ans2 = false;
                 await App.Current.MainPage.DisplayAlert("Alert", "Enter amount", "back");
@@ -213,5 +193,28 @@ namespace StockTaking.ViewModels
             //
             return ans2;
         }
+        public async void Cancel_F()
+        {
+            // This will pop the current page off the navigation stack
+            await Shell.Current.GoToAsync("..");
+        }
+        public async void UpdateProduct_F(Product product)
+        {
+            Product affectedProduct = new Product();
+            affectedProduct = await App.Database.SearchProductAsync(product.Product_Name);
+            affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock + Convert.ToInt32(Amount);
+            if (affectedProduct.Product_Current_Stock <= 50)
+            {
+                affectedProduct.Product_Level = "LOW";
+            }
+            if(affectedProduct.Product_Current_Stock > 50)
+            {
+                affectedProduct.Product_Level = "HIGH";
+            }
+            //
+            await App.Database.EditProductAsync(affectedProduct);
+            //
+        }
+
     }
 }
