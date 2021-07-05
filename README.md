@@ -4,7 +4,17 @@
 * [Showcase](#showcase)
   * [Home Screen](#home-screen)
   * [Add Company](#add-company)
-  * [Login ]
+  * [Login Screen](#login-screen)
+  * [Inventory Overview](#inventory-overview)
+  * [Add Product](#add-product)
+  * [Add Transaction](#add-transaction)
+  * [Alerts](#alerts)
+  * [Settings](#settings)
+* [Getting Started](#getting-started)
+* [Run Application](#run-application)
+* [Download APK](#download-apk)
+* [IMPORTANT!](#important-!)
+
 
 ## Showcase
 
@@ -24,3 +34,37 @@
 ![](pics/m7.gif)
 ### Settings
 ![](pics/m8.gif)
+
+## Getting Started
+
+```bash
+Install Visual Studio 2019 or Later
+
+Install Xamarin Forms
+```
+![](pics/xamarin.gif)
+
+```bash
+git clone https://github.com/Codzaa/StockTakingAndroidApp.git
+
+cd StockTakingAndroidApp
+
+```
+```bash
+Install Android sdk
+```
+![](pics/android.gif)
+```bash
+Install Emulator or Plug in Android Phone
+```
+![](pics/emulator.gif)
+
+### Run Application
+```bash
+Build Application
+
+Start Application
+```
+### Download APK
+
+1. You can download Apk which is located in the Apk Folder.
