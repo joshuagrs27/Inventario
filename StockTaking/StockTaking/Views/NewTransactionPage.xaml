@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.NewTransactionPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="New Transaction">
+             Title="New Transaction"
+              BackgroundColor="#f49fbd">
 
     <!--Binding the View to the ViewModel-->
     <ContentPage.BindingContext>
@@ -92,6 +93,7 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 VerticalOptions="Center"
+                TextColor="Black"
                 Text="{Binding Amount}"
                 />
             <!---->
@@ -107,6 +109,7 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 VerticalOptions="Center"
+                TextColor="Black"
                 Text="{Binding Notes}"
                 />
             <!--Buttons for Saving or Cancelling-->

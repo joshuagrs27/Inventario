@@ -13,6 +13,7 @@ namespace StockTaking.Models
         public string Product_Description { get; set; }
         public int Product_CompanyID { get; set; }
         public int Product_Current_Stock { get; set; }
+        public int Product_Low_Level { get; set; }
         public string Product_Level { get; set; }
 
     }

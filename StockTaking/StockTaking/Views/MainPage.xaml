@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
-             x:Class="StockTaking.Views.MainPage">
+             x:Class="StockTaking.Views.MainPage"
+             BackgroundColor="#f49fbd">
 
 
     <ContentPage.BindingContext>
@@ -20,12 +21,16 @@
                     VerticalOptions="Center"
                     Text="Inventory Overview"
                     FontSize="Title"
+                    FontAttributes="Bold"
+                    TextColor="#757475"
                     />
                 <Label
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
                     Margin="20"
+                    FontAttributes="Bold"
                     Text="Visual Representation of All the Stock in this Company"
+                    TextColor="#757475"
                     />
                 <microcharts:ChartView
                     HeightRequest="400"

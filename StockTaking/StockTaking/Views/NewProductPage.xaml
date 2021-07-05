@@ -5,6 +5,7 @@
              x:Class="StockTaking.Views.NewProductPage"
              Shell.PresentationMode="ModalAnimated"
              Title="New Product"
+              BackgroundColor="#f49fbd"
              >
     <!--Binding the View to the ViewModel-->
     <ContentPage.BindingContext>
@@ -13,7 +14,7 @@
     
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*,*,*,*"
+            RowDefinitions="*,*,*,*,*"
             ColumnDefinitions="*,*">
             <Label
                 Grid.Row="0"
@@ -55,15 +56,30 @@
                 TextColor="Black"
                 Text="{Binding ProductDescription}"
                 />
+            <!--Label & Editor for Product Low Level-->
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="Low Level"/>
+            <Editor
+                Grid.Row="3"
+                Grid.Column="1"
+                VerticalOptions="Center"
+                TextColor="Black"
+                Text="{Binding ProductLowLevel}"
+                />
             <!--Buttons for Saving or Cancelling-->
             <Button
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="0"
                 Text="Save"
                 Command="{Binding SAVE_PRODUCT_COMMAND}"
                 />
             <Button
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 Text="Cancel"
                 Command="{Binding CANCEL_COMMAND}"

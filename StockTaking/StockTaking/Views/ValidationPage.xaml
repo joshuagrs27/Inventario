@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.ValidationPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="Login">
+             Title="Login"
+             BackgroundColor="#f49fbd">
 
     <ContentPage.BindingContext>
         <local:ValidationViewModel/>
@@ -12,7 +13,7 @@
     
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*,*,*,*"
+            RowDefinitions="*,*,*,*,80"
             ColumnDefinitions="*,*">
             <Label
                 Grid.Row="0"
@@ -22,6 +23,8 @@
                 VerticalOptions="Center"
                 Text="{Binding ValidCompany.Company_Name}"
                 TextColor="Black"
+                FontSize="Title"
+                FontAttributes="Bold"
                 />
             <!--Label & Entry for Username-->
             <Label
@@ -68,6 +71,14 @@
                 Grid.Column="1"
                 Text="Cancel"
                 Command="{Binding CANCEL_COMMAND}"
+                />
+            <Button
+                Grid.Row="4"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Text="Delete Company"
+                BackgroundColor="Red"
+                Command="{Binding DELETE_COMPANY_COMMAND}"
                 />
 
 

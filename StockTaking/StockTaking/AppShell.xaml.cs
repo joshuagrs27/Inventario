@@ -11,8 +11,7 @@ namespace StockTaking
         public AppShell()
         {
             InitializeComponent();
-            Routing.RegisterRoute(nameof(ItemDetailPage), typeof(ItemDetailPage));
-            Routing.RegisterRoute(nameof(NewItemPage), typeof(NewItemPage));
+     
 
             //Registering Routes for Special Pages
             Routing.RegisterRoute(nameof(NewCompanyPage), typeof(NewCompanyPage));
@@ -22,6 +21,7 @@ namespace StockTaking
             Routing.RegisterRoute(nameof(NewTransactionPage), typeof(NewTransactionPage));
             Routing.RegisterRoute(nameof(EditTransactionPage), typeof(EditTransactionPage));
             Routing.RegisterRoute(nameof(NewUserPage), typeof(NewUserPage));
+            Routing.RegisterRoute(nameof(UserDetailsPage), typeof(UserDetailsPage));
 
         }
 

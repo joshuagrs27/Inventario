@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.NewUserPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="New User">
+             Title="New User"
+              BackgroundColor="#f49fbd">
 
     <ContentPage.BindingContext>
         <local:NewUserViewModel/>

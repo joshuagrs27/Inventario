@@ -14,7 +14,10 @@ namespace StockTaking.ViewModels
         public SettingsViewModel()
         {
             ADD_NEW_USER_COMMAND = new Command(AddUser_F);
+            ItemTapped = new Command<User>(OnUserSelected_F);
         }
+        //
+        public Command<User> ItemTapped { get; }
         //
         public async void OnAppearing()
         {
@@ -79,6 +82,23 @@ namespace StockTaking.ViewModels
             {
                 await App.Current.MainPage.DisplayAlert("Alert", "Only Administrator Can Add Users", "Ok");
             }
+        }
+        //
+        public async void OnUserSelected_F(User user)
+        {
+            if (App.CurrentUser.User_Permission == "ADMIN-RIGHTS")
+            {
+                //Set the Global Current Product
+                App.SelectedUser = user;
+                //Go to Product Details Page
+                await Shell.Current.GoToAsync(nameof(UserDetailsPage));
+                //
+            }
+            else
+            {
+                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+            }
+
         }
     }
 }

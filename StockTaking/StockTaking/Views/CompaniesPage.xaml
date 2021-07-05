@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
-             x:Class="StockTaking.Views.CompaniesPage">
+             x:Class="StockTaking.Views.CompaniesPage"
+             BackgroundColor="#f49fbd">
 
 
     <!--Binding Context-->
@@ -12,7 +13,7 @@
     
     <!---->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding ADDNEWCOMPANY}" />
+        <ToolbarItem Text="Add Company" Command="{Binding ADDNEWCOMPANY}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
@@ -25,11 +26,10 @@
                     <DataTemplate>
                         <Frame 
                             HasShadow="True"
-                            CornerRadius="20"
                             BorderColor="Black"
                             Padding="1" 
                             HeightRequest="100" 
-                            BackgroundColor="Aqua">
+                            BackgroundColor="#ad0553">
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
                                         NumberOfTapsRequired="1"
@@ -42,6 +42,7 @@
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
                                 Text="{Binding Company_Name}"
+                                FontAttributes="Bold"
                                 TextColor="Black"
                                 />
                         </Frame>

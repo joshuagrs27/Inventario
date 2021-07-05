@@ -28,6 +28,7 @@ namespace StockTaking.ViewModels
             //
             ProductName = Product_A.Product_Name;
             ProductDescription = Product_A.Product_Description;
+            ProductLowLevel = Product_A.Product_Low_Level;
 
         }
 
@@ -49,8 +50,6 @@ namespace StockTaking.ViewModels
                 OnPropertyChanged();
             }
         }
-
-
         //
         public string productName;
         public string ProductName
@@ -102,6 +101,18 @@ namespace StockTaking.ViewModels
                 OnPropertyChanged();
             }
         }
+        //
+        private int productLowLevel;
+        public int ProductLowLevel
+        {
+            get => productLowLevel;
+            set
+            {
+                productLowLevel = value;
+                OnPropertyChanged();
+            }
+        }
+        //
         public bool edit_Enable = false;
         public bool Edit_Enable
         {
@@ -117,6 +128,7 @@ namespace StockTaking.ViewModels
         //Function when we delete the Product
         public async void DeleteProduct_F()
         {
+            //Telling the database to delete the product
             await App.Database.DeleteProductAsync(Product_A);
             //
             App.CurrentProduct = null;
@@ -132,7 +144,7 @@ namespace StockTaking.ViewModels
             await Shell.Current.GoToAsync("..");
         }
         //Function when Edit button is clicked
-        public async void EditProduct_F()
+        public void EditProduct_F()
         {
             Edit_Enable = !Edit_Enable;
         }
@@ -148,6 +160,7 @@ namespace StockTaking.ViewModels
                 productObj = Product_A;
                 productObj.Product_Name = ProductName;
                 productObj.Product_Description = ProductDescription;
+                productObj.Product_Low_Level = ProductLowLevel;
                 //Save the Administrator to the Database
                 await App.Database.EditProductAsync(productObj);
                 //
@@ -166,13 +179,20 @@ namespace StockTaking.ViewModels
             if (ProductName == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Name Needed", "Ok");
                 return ans2;
             }
             if (ProductDescription == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Description Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Description Needed", "Ok");
+                return ans2;
+            }
+            if (ProductLowLevel <= 0)
+            {
+                ans2 = false;
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Low Level Needed", "Ok");
+                return ans2;
             }
             return ans2;
         }

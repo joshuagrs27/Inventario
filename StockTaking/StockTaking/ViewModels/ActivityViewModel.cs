@@ -16,6 +16,7 @@ namespace StockTaking.ViewModels
             ItemTapped = new Command<Transaction>(OnTransactionSelected_F);
             ADD_NEW_TRANSACTION = new Command(NewTransaction_F);
         }
+
         //Function called everytime the Screen Appears
         public async void OnAppearing()
         {
@@ -25,6 +26,7 @@ namespace StockTaking.ViewModels
             {
                 if(transaction.Transaction_Company_ID == App.CurrentCompany.Company_Id)
                 {
+                    
                     tempCollection.Add(transaction);
                 }
             }
@@ -66,6 +68,7 @@ namespace StockTaking.ViewModels
                 await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
                 return;
             }
+
             //Go to new Company Page
             await Shell.Current.GoToAsync(nameof(NewTransactionPage));
         }

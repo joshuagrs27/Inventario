@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
-             x:Class="StockTaking.Views.ProductsPage">
+             x:Class="StockTaking.Views.ProductsPage"
+              BackgroundColor="#f49fbd">
     
     <!--Binding the View to the View Model-->
     <ContentPage.BindingContext>
@@ -26,11 +27,11 @@
                     <DataTemplate>
                         <Frame 
                             HasShadow="True"
-                            CornerRadius="20"
+                            CornerRadius="50"
                             BorderColor="Black"
                             Padding="1" 
                             HeightRequest="100" 
-                            BackgroundColor="RosyBrown"
+                            BackgroundColor="#8ea573"
                             >
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer
@@ -43,6 +44,9 @@
                             <Label
                                 HorizontalOptions="Center"
                                 VerticalOptions="Center"
+                                FontAttributes="Bold"
+                                TextColor="Black"
+                                FontSize="Large"
                                 Text="{Binding Product_Name}"
                                 />
                         </Frame>

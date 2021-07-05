@@ -5,6 +5,7 @@
              x:Class="StockTaking.Views.NewCompanyPage"
              Shell.PresentationMode="ModalAnimated"
              Title="New Company"
+             BackgroundColor="#f49fbd"
             >
 
     <ContentPage.BindingContext>

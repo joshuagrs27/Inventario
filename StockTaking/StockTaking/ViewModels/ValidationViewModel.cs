@@ -15,6 +15,7 @@ namespace StockTaking.ViewModels
         {
             LOGIN_COMMAND = new Command(Trylogin_F);
             CANCEL_COMMAND = new Command(Cancel_F);
+            DELETE_COMPANY_COMMAND = new Command(Delete_F);
         }
         //
         public void OnAppearing()
@@ -25,6 +26,7 @@ namespace StockTaking.ViewModels
         //--Commands--\\
         public Command LOGIN_COMMAND { get; }
         public Command CANCEL_COMMAND { get; }
+        public Command DELETE_COMPANY_COMMAND { get; }
         //------------------Getters and Setters--------------\\
         public Company validCompany = new Company();
         public Company ValidCompany
@@ -96,9 +98,12 @@ namespace StockTaking.ViewModels
                     {
                         if (user.User_Company_ID == ValidCompany.Company_Id)
                         {
+                           
                             App.CurrentUser = user;
                             pass = true;
                             return pass;
+                           
+                           
                         }
                     }
                 }
@@ -106,7 +111,63 @@ namespace StockTaking.ViewModels
 
             return pass;
         }
+        public async Task<bool> Valid_F2()
+        {
+            bool pass = false;
+            //Check for non-admin Users
+            List<User> usersCollection = await App.Database.GetUsersAsync();
+            //
+            foreach (var user in usersCollection)
+            {
+                if (Username == user.User_Name)
+                {
+                    if (Userpassword == user.User_Password)
+                    {
+                        if (user.User_Company_ID == ValidCompany.Company_Id)
+                        {
+                            if (user.User_Permission == "ADMIN-RIGHTS")
+                            {
+                                App.CurrentUser = user;
+                                pass = true;
+                                return pass;
+                            }
 
-        
+                        }
+                    }
+                }
+            }
+
+            return pass;
+        }
+        //
+        public async void Delete_F()
+        {
+            bool ans = await Valid_F2();
+            if (ans)
+            {
+                
+                //Telling the database to delete the product
+                await App.Database.DeleteCompanyAsync(ValidCompany);
+                //
+                App.CurrentCompany = null;
+                //
+                await App.Current.MainPage.DisplayAlert("Success", ValidCompany.Company_Name + " Deleted", "Back");
+            }
+            else{
+                await App.Current.MainPage.DisplayAlert("Alert", "You dont have permission", "back");
+            }
+           
+            //
+            Back_F();
+
+        }
+        //
+        //Function when the back button is clicked
+        public async void Back_F()
+        {
+            await Shell.Current.GoToAsync("..");
+        }
+
+
     }
 }

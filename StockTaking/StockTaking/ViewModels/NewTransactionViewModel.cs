@@ -152,23 +152,59 @@ namespace StockTaking.ViewModels
                 transObj.Transaction_Product_Name = ProductSelected.Product_Name;
                 transObj.Transaction_Product_ID = ProductSelected.Product_Id;
                 //
-                await App.Database.SaveTransactionAsync(transObj);
+                if(transObj.Transaction_Type == "OUT")
+                {
+                    if (ProductSelected.Product_Current_Stock > transObj.Transaction_Amount)
+                    {
+
+                        await App.Database.SaveTransactionAsync(transObj);
+
+                        UpdateProduct_F(ProductSelected, transObj);
+
+                        await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                    }
+                    else
+                    {
+                        await App.Current.MainPage.DisplayAlert("Alert", "Transaction failed,Stock Level Low", "ok");
+                    }
+                }
                 //
-                UpdateProduct_F(ProductSelected);
-                //
-                await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                if(transObj.Transaction_Type == "IN")
+                {
+            
+                    await App.Database.SaveTransactionAsync(transObj);
+
+                    UpdateProduct_F(ProductSelected, transObj);
+
+                    await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                    
+                }
                 //
                 Cancel_F();
             }
             
         }
         //
-        public async void UpdateProduct_F(Product product)
+        public void CheckTransactionType()
+        {
+
+        }
+        //
+        public async void UpdateProduct_F(Product product, Transaction transaction)
         {
             Product affectedProduct = new Product();
             affectedProduct = await App.Database.SearchProductAsync(product.Product_Name);
-            affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock + Convert.ToInt32(Amount);
-            if(affectedProduct.Product_Current_Stock <= 50)
+            //Check Transaction Type
+            if (transaction.Transaction_Type == "IN")
+            {
+                affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock + Convert.ToInt32(Amount);
+            }
+            if (transaction.Transaction_Type == "OUT")
+            {
+                affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock - Convert.ToInt32(Amount);
+            }
+            //
+            if (affectedProduct.Product_Current_Stock <= 50)
             {
                 affectedProduct.Product_Level = "LOW";
             }
@@ -176,7 +212,7 @@ namespace StockTaking.ViewModels
             {
                 affectedProduct.Product_Level = "HIGH";
             }
-            //
+       
             await App.Database.EditProductAsync(affectedProduct);
             //
         }

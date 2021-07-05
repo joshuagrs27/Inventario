@@ -10,12 +10,11 @@ namespace StockTaking.ViewModels
 {
     public  class MainViewModel:BindableObject
     {
-        //
+        //Constructor
         public MainViewModel()
         {
             //
             StartAlerts_F();
-            
         }
         //
         public async void OnAppearing()
@@ -91,7 +90,19 @@ namespace StockTaking.ViewModels
             int i = 10;
 
             //
-            
+            if(Products.Count <= 0)
+            {
+                source.Add(new ChartEntry(100)
+                {
+                    Label = "Empty",
+                    ValueLabelColor = SKColor.Parse("#b3b3b3"),
+                    ValueLabel = "0",
+                    Color = SKColor.Parse("#b3b3b3")
+                });
+                Entries1 = source;
+                MakeChart_F();
+                return;
+            }
             foreach (var product in Products)
             {
                 //
@@ -119,16 +130,16 @@ namespace StockTaking.ViewModels
             var tempStrings = new List<string>();
             foreach(var product in tempCollection)
             {
-                if(product.Product_Current_Stock <= 50)
+                if(product.Product_Current_Stock <= product.Product_Low_Level)
                 {
                     tempStrings.Add(product.Product_Name);
                 }
             }
             string temp = String.Join(String.Empty, tempStrings.ToArray());
-            if (tempStrings != null)
+            if (tempStrings.Count > 0)
             {
                 await App.Current.MainPage.DisplayAlert("Warning", 
-                    "The following Products are Low: "+ temp +"Got to the Alerts Page for More", 
+                    "The following Products are Low: "+ " " + temp +" ," +" :Got to the Alerts Page for More", 
                     "ok");
             }
         }

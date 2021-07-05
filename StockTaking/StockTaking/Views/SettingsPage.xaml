@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
-             x:Class="StockTaking.Views.SettingsPage">
+             x:Class="StockTaking.Views.SettingsPage"
+             BackgroundColor="#f49fbd">
 
 
     <!--Toolbar Buttons-->
@@ -39,6 +40,14 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Frame BorderColor="Black">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer
+                                        NumberOfTapsRequired="1"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:SettingsViewModel}}, Path=ItemTapped}"
+                                        CommandParameter="{Binding .}">
+
+                                </TapGestureRecognizer>
+                            </Frame.GestureRecognizers>
                             <StackLayout Orientation="Horizontal">
                                 <Label
                                     TextColor="Black"

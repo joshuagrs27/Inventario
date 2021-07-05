@@ -32,29 +32,37 @@
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label
-                                         Text="Product:"/>
+                                        TextColor="#757475"
+                                        Text="Product:"/>
                                     <Label
+                                        TextColor="#757475"
                                         Text="{Binding Transaction_Product_Name}"
                                         />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label
+                                        TextColor="#757475"
                                          Text="Type:"/>
                                     <Label
+                                        TextColor="#757475"
                                         Text="{Binding Transaction_Type}"
                                         />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label
+                                        TextColor="#757475"
                                          Text="Amount:"/>
                                     <Label
+                                        TextColor="#757475"
                                         Text="{Binding Transaction_Amount}"
                                         />
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label
+                                        TextColor="#757475"
                                          Text="Date:"/>
                                     <Label
+                                        TextColor="#757475"
                                         Text="{Binding Transaction_Date}"
                                         />
                                 </StackLayout>

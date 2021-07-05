@@ -1,4 +1,4 @@
-﻿using StockTaking.Models;
+using StockTaking.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,7 +9,7 @@ namespace StockTaking.ViewModels
 {
     public class NewCompanyModel:BindableObject
     {
-        //Conscrutor
+        //Constructor
         public NewCompanyModel()
         {
             SAVE_COMPANY_COMMAND = new Command(SaveCompany_F);
@@ -97,7 +97,7 @@ namespace StockTaking.ViewModels
                 newCompanyObj.Company_Admin_Password = CompanyAdminUserpassword;
                 //Check if Company Already Exists
                 bool checker =  await CheckDuplicate_F();
-                
+
                 if (checker)
                 {
                     //Save To Database
@@ -120,7 +120,7 @@ namespace StockTaking.ViewModels
                 }
 
             }
-      
+
         }
 
         //Cancel Function

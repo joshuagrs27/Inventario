@@ -8,7 +8,7 @@ namespace StockTaking.ViewModels
 {
     public class AlertsViewModel:BindableObject
     {
-        //
+        //Constructor
         public AlertsViewModel()
         {
 
@@ -19,7 +19,7 @@ namespace StockTaking.ViewModels
             var otherCollection = new List<Product>();
             foreach(var product in tempCollection)
             {
-                if(product.Product_Current_Stock <= 50)
+                if(product.Product_Current_Stock <= product.Product_Low_Level)
                 {
                     otherCollection.Add(product);
                 }

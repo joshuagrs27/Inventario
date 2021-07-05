@@ -42,6 +42,17 @@ namespace StockTaking.ViewModels
                 OnPropertyChanged();
             }
         }
+        //
+        private int productLowLevel;
+        public int ProductLowLevel
+        {
+            get => productLowLevel;
+            set
+            {
+                productLowLevel = value;
+                OnPropertyChanged();
+            }
+        }
         //------Custom Functions-----\\
         public async void Cancel_F()
         {
@@ -63,6 +74,7 @@ namespace StockTaking.ViewModels
                 productObj.Product_CompanyID = App.CurrentCompany.Company_Id;
                 productObj.Product_Current_Stock = 0;
                 productObj.Product_Level = "EMPTY";
+                productObj.Product_Low_Level = ProductLowLevel;
                 //Save the Administrator to the Database
                 await App.Database.SaveProductAsync(productObj);
                 //
@@ -81,13 +93,20 @@ namespace StockTaking.ViewModels
             if(ProductName == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Name Needed", "Ok");
                 return ans2;
             }
             if(ProductDescription == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Description Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Description Needed", "Ok");
+                return ans2;
+            }
+            if (ProductLowLevel <= 0)
+            {
+                ans2 = false;
+                await App.Current.MainPage.DisplayAlert("Alert", "Product Low Level Needed", "Ok");
+                return ans2;
             }
             return ans2;
         }

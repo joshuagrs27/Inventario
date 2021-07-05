@@ -1,5 +1,4 @@
 ﻿using StockTaking.Models;
-using StockTaking.Services;
 using StockTaking.Views;
 using System;
 using System.IO;
@@ -45,6 +44,16 @@ namespace StockTaking
                 currentUser = value;
             }
         }
+        //Global Variable for CurrentUser
+        public static User selectedUser = new User();
+        public static User SelectedUser
+        {
+            get => selectedUser;
+            set
+            {
+                selectedUser = value;
+            }
+        }
         //
         public static Product currentProduct = new Product();
         public static Product CurrentProduct
@@ -70,7 +79,7 @@ namespace StockTaking
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+           
             MainPage = new AppShell();
         }
 

@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.ProductDetailsPage"
              Shell.PresentationMode="ModalAnimated"
-             Title="Product Details">
+             Title="Product Details"
+             BackgroundColor="#f49fbd">
     
     <!--Binding Context-->
     <ContentPage.BindingContext>
@@ -14,7 +15,7 @@
     
     <ContentPage.Content>
         <Grid
-            RowDefinitions="*,*,*,*,*,*"
+            RowDefinitions="*,*,*,*,*,*,*"
             ColumnDefinitions="*,*,*">
             
             <!--Label and Entry for Product Name-->
@@ -53,9 +54,27 @@
                 VerticalOptions="Center"
                 IsEnabled="{Binding Edit_Enable}"
                 />
-            <!--Label and Entry for Current Level-->
+            <!--Label and Entry for Product Low Level-->
             <Label
                 Grid.Row="2"
+                Grid.Column="0"
+                Text="Low Level"
+                TextColor="Black"
+                HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Entry
+                Grid.Row="2"
+                Grid.Column="1"
+                Grid.ColumnSpan="2"
+                Text="{Binding ProductLowLevel}"
+                TextColor="Black"
+                VerticalOptions="Center"
+                IsEnabled="{Binding Edit_Enable}"
+                />
+            <!--Label and Entry for Current Level-->
+            <Label
+                Grid.Row="3"
                 Grid.Column="0"
                 Text="Current Level"
                 TextColor="Black"
@@ -63,7 +82,7 @@
                 VerticalOptions="Center"
                 />
             <Entry
-                Grid.Row="2"
+                Grid.Row="3"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Text="{Binding Product_A.Product_Level}"
@@ -73,7 +92,7 @@
                 />
             <!--Label and Entry for Current Stock-->
             <Label
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="0"
                 Text="Stock Count"
                 TextColor="Black"
@@ -81,7 +100,7 @@
                 VerticalOptions="Center"
                 />
             <Entry
-                Grid.Row="3"
+                Grid.Row="4"
                 Grid.Column="1"
                 Grid.ColumnSpan="2"
                 Text="{Binding Product_A.Product_Current_Stock}"
@@ -92,25 +111,25 @@
             
             <!--Buttons For Edit Saving and Back-->
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="0"
                 Text="Save"
                 Command="{Binding SAVE_PRODUCT_COMMAND}"
                 />
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="1"
                 Text="Edit"
                 Command="{Binding EDIT_PRODUCT_COMMAND}"
                 />
             <Button
-                Grid.Row="4"
+                Grid.Row="5"
                 Grid.Column="2"
                 Text="Delete"
                 Command="{Binding DELETE_PRODUCT_COMMAND}"
                 />
             <Button
-                Grid.Row="5"
+                Grid.Row="6"
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
                 Text="Back"

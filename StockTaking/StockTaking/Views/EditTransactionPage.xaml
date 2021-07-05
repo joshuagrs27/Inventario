@@ -4,7 +4,8 @@
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.EditTransactionPage"
               Shell.PresentationMode="ModalAnimated"
-             Title="Edit Transaction">
+             Title="Edit Transaction"
+              BackgroundColor="#f49fbd">
 
     <!--Binding Context-->
     <ContentPage.BindingContext>
@@ -58,6 +59,7 @@
                 Grid.Column="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
+                TextColor="#757475"
                 Text="{Binding TheTransaction.Transaction_Type}"
                 />
             <!--Label & Editor for Product Description-->
@@ -81,6 +83,7 @@
             <Label
                 Grid.Row="2"
                 Grid.Column="2"
+                TextColor="#757475"
                 Text="{Binding TheTransaction.Transaction_Date}"
                 />
             <!--Picker for Product-->
@@ -106,6 +109,7 @@
                 Grid.Column="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
+                TextColor="#757475"
                 Text="{Binding TheTransaction.Transaction_Product_Name}"
                 />
             <!---->
@@ -121,6 +125,7 @@
                 Grid.Row="4"
                 Grid.Column="1"
                 VerticalOptions="Center"
+                TextColor="Black"
                 Text="{Binding Amount}"
                 />
             <Label
@@ -128,6 +133,7 @@
                 Grid.Column="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
+                TextColor="#757475"
                 Text="{Binding TheTransaction.Transaction_Amount}"
                 />
             <!---->
@@ -143,6 +149,7 @@
                 Grid.Row="5"
                 Grid.Column="1"
                 VerticalOptions="Center"
+                TextColor="Black"
                 Text="{Binding Notes}"
                 />
             <Label
@@ -150,6 +157,7 @@
                 Grid.Column="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
+                TextColor="#757475"
                 Text="{Binding TheTransaction.Transaction_Notes}"
                 />
             <!--Buttons for Saving or Cancelling-->
