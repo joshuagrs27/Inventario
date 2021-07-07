@@ -2,38 +2,25 @@
 
 ## Table of contents
 * [Showcase](#showcase)
-  * [Home Screen](#home-screen)
-  * [Add Company](#add-company)
-  * [Login Screen](#login-screen)
-  * [Inventory Overview](#inventory-overview)
-  * [Add Product](#add-product)
-  * [Add Transaction](#add-transaction)
-  * [Alerts](#alerts)
-  * [Settings](#settings)
+  * [Home Screen & Add Company](#home-screen-and-add-company)
+  * [Login Screen & Inventory Overview](#login-screen-and-inventory-overview)
+  * [Add Product & Add Transaction](#add-product-and-add-transaction)
+  * [Alerts & Settings](#alerts-and-settings)
 * [Getting Started](#getting-started)
 * [Run Application](#run-application)
 * [Download APK](#download-apk)
-* [IMPORTANT!](#important-!)
-
 
 ## Showcase
 
-### Home Screen
-![](pics/m1.gif)
-### Add Company
-![](pics/m2.gif)
-### Login Screen
-![](pics/m3.gif)
-### Inventory Overview
-![](pics/m4.gif)
-### Add Product
-![](pics/m5.gif)
-###  Add Transaction
-![](pics/m6.gif)
-###  Alerts
-![](pics/m7.gif)
-### Settings
-![](pics/m8.gif)
+### Home Screen And Add Company
+![](pics/m1.gif)![](pics/m2.gif)
+### Login Screen And Inventory Overview
+![](pics/m3.gif)![](pics/m4.gif)
+### Add Product And Add Transaction
+![](pics/m5.gif)![](pics/m6.gif)
+### Alerts And Settings
+![](pics/m7.gif)![](pics/m8.gif)
+
 
 ## Getting Started
 
