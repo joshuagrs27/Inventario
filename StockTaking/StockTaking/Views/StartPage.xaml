@@ -11,84 +11,83 @@
         <local:StartViewModel/>
     </ContentPage.BindingContext>
     <ContentPage.Content>
-        <Grid
-            RowDefinitions="*,*,*,*"
-            ColumnDefinitions="*,*,*,*">
-            
-            <!--Heading(Name of the Applications-->
-            <Label
-                Grid.Row="0"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                HorizontalOptions="Center"
-                VerticalOptions="Center"
-                Text="Stock Taking App"
-                TextColor="Black"
-                FontSize="Title"
-                FontAttributes="Bold"
-                
-                />
-            <!--App Description-->
-            <StackLayout
-                Grid.Row="1"
-                Grid.Column="0"
-                Grid.ColumnSpan="4"
-                >
-                <Label
-                    HorizontalOptions="Center"
-                    Text="This an Experimental Stock Taking Application."
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Key Features:"
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Add Multiple Companies"
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Add Multiple Users with Different Access levels"
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Add Multiple Products"
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Add Multiple Transactions"
-                    TextColor="Black"
-                    />
-                <Label
-                    HorizontalOptions="Center"
-                    Text="Receive Alerts"
-                    TextColor="Black"
-                    />
-                
-                
-                
-            </StackLayout>
-            
-            <!--Stack containing Two Buttons for each option-->
+        <StackLayout Padding="0">
+            <Grid>
+                <StackLayout Padding="0" Margin="0">
+                    <Frame BackgroundColor="SteelBlue" HeightRequest="130" HorizontalOptions="FillAndExpand"></Frame>
+                </StackLayout>
 
-            <Button
-                Margin="20,10"
-                Grid.Row="2"
-                Grid.Column="1"
-                Grid.ColumnSpan="2"
-                Text="Enter"
-                TextColor="Black"
-                FontAttributes="Bold"
-                FontSize="Title"
-                Command="{Binding CHOOSECOMPANY}"
-                BackgroundColor="#ad0553"
-                />
+                <StackLayout Margin="15,110,15,0">
+                    <Frame BackgroundColor="white" HasShadow="True" HeightRequest="500" CornerRadius="20
+                      " HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="Sign in" TextColor="Black" FontSize="Medium" FontAttributes="Bold"></Label>
+                            </StackLayout>
+                            <StackLayout Margin="0,20,0,0">
+                                <Frame BackgroundColor="Transparent" Padding="0" Margin="0" BorderColor="DarkGray" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" HorizontalOptions="Start" Padding="0" Margin="7">
+                                            <Image Source="https://www.pngfind.com/pngs/m/470-4703547_icon-user-icon-hd-png-download.png" Aspect="AspectFill" Margin="0"></Image>
+                                        </Frame>
+                                        <Entry Placeholder="UserName" TextColor="SteelBlue" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" Padding="0" Margin="0,20,0,20" BorderColor="DarkGray" CornerRadius="50" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame BackgroundColor="AliceBlue" CornerRadius="50" HeightRequest="35" WidthRequest="35" HorizontalOptions="Start" Padding="0" Margin="7">
+                                            <Image Source="https://e7.pngegg.com/pngimages/708/705/png-clipart-password-manager-password-safe-android-blue-electric-blue.png" Aspect="AspectFill" Margin="0"></Image>
+                                        </Frame>
 
-        </Grid>
+
+                                        <Entry Placeholder="Password" IsPassword="True" TextColor="SteelBlue" HorizontalOptions="FillAndExpand" Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                            </StackLayout>
+
+
+                            <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" >
+                                <CheckBox Margin="0,-3,0,0" IsChecked="False" Color="SteelBlue" ></CheckBox>
+                                <Label Text="Remember me" HorizontalTextAlignment="Start" HorizontalOptions="EndAndExpand" TextColor="SteelBlue"  FontAttributes="Bold" Margin="0,0,10,0" ></Label>
+
+                                <Label Text="Forgot Password" HorizontalTextAlignment="End" TextColor="SteelBlue" HorizontalOptions="EndAndExpand" FontAttributes="Bold" ></Label>
+                            </StackLayout>
+                            <Button Text="SIGN IN" BackgroundColor="SteelBlue" TextColor="White" FontAttributes="Bold" CornerRadius="30"  Command="{Binding CHOOSECOMPANY}"></Button>
+
+                            <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+
+                                <Label Text="Still Not Connected" TextColor="SteelBlue" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold" Padding="0,0,55,0"></Label>
+
+                                <Label Text="Sign Up" HorizontalTextAlignment="Center" TextColor="SteelBlue" HorizontalOptions="EndAndExpand" FontAttributes="Bold" VerticalTextAlignment="Center" ></Label>
+                            </StackLayout>
+                            <StackLayout >
+                                <Grid>
+                                    <BoxView BackgroundColor="DarkGray" HeightRequest="1" Margin="50" HorizontalOptions="CenterAndExpand" WidthRequest="130"></BoxView>
+                                    <Frame BackgroundColor="White" WidthRequest="50" HeightRequest="50" CornerRadius="30" HasShadow="False" BorderColor="DarkGray" VerticalOptions="Center" Padding="0" Margin="0" HorizontalOptions="CenterAndExpand">
+                                        <Label Text="OR" TextColor="DarkGray" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>
+                                    </Frame>
+                                </Grid>
+
+
+                                <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+                                    <Frame BackgroundColor="SteelBlue" WidthRequest="50" HeightRequest="50" CornerRadius="30" HasShadow="False"   Padding="0" Margin="0" >
+                                        <Image Source="https://www.facebook.com/images/fb_icon_325x325.png" Aspect="AspectFill" Margin="0"></Image>
+                                        <!--<Label Text="OR" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>-->
+                                    </Frame>
+                                    <Frame BackgroundColor="Aqua" WidthRequest="50" HeightRequest="50" CornerRadius="30" HasShadow="False"  Padding="0" Margin="0" >
+                                        <Image Source="https://cdn.icon-icons.com/icons2/1945/PNG/512/iconfinder-twitter-4661621_122493.png" Aspect="AspectFill" Margin="0"></Image>
+                                        <!-- <Label Text="OR" TextColor="White" FontSize="Small" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" FontAttributes="Bold"></Label>-->
+                                    </Frame>
+                                </StackLayout>
+
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>
+
+
+    
