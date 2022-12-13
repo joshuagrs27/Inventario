@@ -92,7 +92,7 @@ namespace StockTaking.ViewModels
                 //
                 await App.Database.SaveUserAsync(userObj);
                 //
-                await App.Current.MainPage.DisplayAlert("Success", "User saved", "ok");
+                await App.Current.MainPage.DisplayAlert("Exito", "User guardado", "ok");
                 //
                 Cancel_F();
             }
@@ -106,19 +106,19 @@ namespace StockTaking.ViewModels
             if (ChosenPermission == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alert", "Elige permiso", "Atras");
                 return ans2;
             }
             if (UserName == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose User Name", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige nombre de username", "Atras");
                 return ans2;
             }
             if (UserPassword == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose User Password", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige User Password", "Atras");
                 return ans2;
             }
             //

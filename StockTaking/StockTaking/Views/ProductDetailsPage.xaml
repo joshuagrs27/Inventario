@@ -5,7 +5,7 @@
              x:Class="StockTaking.Views.ProductDetailsPage"
              Shell.PresentationMode="ModalAnimated"
              Title="Product Details"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="LightBlue">
     
     <!--Binding Context-->
     <ContentPage.BindingContext>
@@ -22,7 +22,7 @@
             <Label
                 Grid.Row="0"
                 Grid.Column="0"
-                Text="Name"
+                Text="Nombre"
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -40,7 +40,7 @@
             <Label
                 Grid.Row="1"
                 Grid.Column="0"
-                Text="Description"
+                Text="Descripcion"
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -58,7 +58,7 @@
             <Label
                 Grid.Row="2"
                 Grid.Column="0"
-                Text="Low Level"
+                Text="Bajo nivel"
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -76,7 +76,7 @@
             <Label
                 Grid.Row="3"
                 Grid.Column="0"
-                Text="Current Level"
+                Text="Nivel Actual"
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -94,7 +94,7 @@
             <Label
                 Grid.Row="4"
                 Grid.Column="0"
-                Text="Stock Count"
+                Text="Control inventario"
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -113,26 +113,26 @@
             <Button
                 Grid.Row="5"
                 Grid.Column="0"
-                Text="Save"
+                Text="Guardar"
                 Command="{Binding SAVE_PRODUCT_COMMAND}"
                 />
             <Button
                 Grid.Row="5"
                 Grid.Column="1"
-                Text="Edit"
+                Text="Editar"
                 Command="{Binding EDIT_PRODUCT_COMMAND}"
                 />
             <Button
                 Grid.Row="5"
                 Grid.Column="2"
-                Text="Delete"
+                Text="Borrar"
                 Command="{Binding DELETE_PRODUCT_COMMAND}"
                 />
             <Button
                 Grid.Row="6"
                 Grid.Column="0"
                 Grid.ColumnSpan="3"
-                Text="Back"
+                Text="Atras"
                 Command="{Binding BACK_COMMAND}"
                 />
 

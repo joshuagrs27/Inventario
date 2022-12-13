@@ -4,7 +4,7 @@
              xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.MainPage"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="White">
 
 
     <ContentPage.BindingContext>
@@ -19,7 +19,7 @@
                     Margin="20"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"
-                    Text="Inventory Overview"
+                    Text="Inventario Overview"
                     FontSize="Title"
                     FontAttributes="Bold"
                     TextColor="#757475"

@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.ProductsPage"
-              BackgroundColor="#f49fbd">
+              BackgroundColor="White">
     
     <!--Binding the View to the View Model-->
     <ContentPage.BindingContext>
@@ -12,7 +12,7 @@
 
     <!--Toolbar Buttons-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Product" Command="{Binding ADD_NEW_PRODUCT_COMMAND}" />
+        <ToolbarItem Text="Añadir Producto" Command="{Binding ADD_NEW_PRODUCT_COMMAND}" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.Content>
@@ -31,7 +31,7 @@
                             BorderColor="Black"
                             Padding="1" 
                             HeightRequest="100" 
-                            BackgroundColor="#8ea573"
+                            BackgroundColor="SteelBlue"
                             >
                             <Frame.GestureRecognizers>
                                 <TapGestureRecognizer

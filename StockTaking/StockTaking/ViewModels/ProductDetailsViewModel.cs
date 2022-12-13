@@ -133,7 +133,7 @@ namespace StockTaking.ViewModels
             //
             App.CurrentProduct = null;
             //
-            await App.Current.MainPage.DisplayAlert("Alert", Product_A.Product_Name + " Deleted", "Back");
+            await App.Current.MainPage.DisplayAlert("Alerta", Product_A.Product_Name + " Borrar", "Atras");
             //
             Back_F();
 
@@ -164,7 +164,7 @@ namespace StockTaking.ViewModels
                 //Save the Administrator to the Database
                 await App.Database.EditProductAsync(productObj);
                 //
-                await App.Current.MainPage.DisplayAlert("Success", "Product Successfully Saved", "Ok");
+                await App.Current.MainPage.DisplayAlert("Exito", "Producto guardado", "Ok");
                 //
                 // This will pop the current page off the navigation stack
                 await Shell.Current.GoToAsync("..");
@@ -179,19 +179,19 @@ namespace StockTaking.ViewModels
             if (ProductName == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto necesita nombre", "Ok");
                 return ans2;
             }
             if (ProductDescription == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Description Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto necesita descripcion", "Ok");
                 return ans2;
             }
             if (ProductLowLevel <= 0)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Low Level Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto bajo nivel", "Ok");
                 return ans2;
             }
             return ans2;

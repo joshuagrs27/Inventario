@@ -5,7 +5,7 @@
              x:Class="StockTaking.Views.NewTransactionPage"
              Shell.PresentationMode="ModalAnimated"
              Title="New Transaction"
-              BackgroundColor="#f49fbd">
+              BackgroundColor="LightBlue">
 
     <!--Binding the View to the ViewModel-->
     <ContentPage.BindingContext>
@@ -22,7 +22,7 @@
                 Grid.ColumnSpan="2"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
-                Text="New Transaction"
+                Text="Nueva transaccion"
                 TextColor="Black"
                 FontSize="Title"
                 />
@@ -33,12 +33,12 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 TextColor="Black"
-                Text="Transaction Type"/>
+                Text="Tipo de transaccion"/>
             <Picker
                 Grid.Row="1"
                 Grid.Column="1"
                 TitleColor="Black"
-                Title="Choose Type"
+                Title="Elegir tipo"
                 TextColor="Black"
                 ItemsSource="{Binding TransactionsTypes}"
                 ItemDisplayBinding="{Binding Value_Data}"
@@ -51,7 +51,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 TextColor="Black"
-                Text="Select Date"/>
+                Text="Seleccionar fecha"/>
             <DatePicker
                 Grid.Row="2"
                 Grid.Column="1"
@@ -69,12 +69,12 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 TextColor="Black"
-                Text="Select Product"/>
+                Text="Seleccionar producto"/>
             <Picker
                 Grid.Row="3"
                 Grid.Column="1"
                 TitleColor="Black"
-                Title="Select Product"
+                Title="Seleccionar producto"
                 TextColor="Black"
                 ItemsSource="{Binding ProductList}"
                 ItemDisplayBinding="{Binding Product_Name}"
@@ -87,7 +87,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 TextColor="Black"
-                Text="Amount"
+                Text="Cantidad"
                 />
             <Entry
                 Grid.Row="4"
@@ -103,7 +103,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 TextColor="Black"
-                Text="Notes"
+                Text="Notas"
                 />
             <Editor
                 Grid.Row="5"
@@ -116,13 +116,13 @@
             <Button
                 Grid.Row="6"
                 Grid.Column="0"
-                Text="Save"
+                Text="Guardar"
                 Command="{Binding SAVE_TRANSACTION_COMMAND}"
                 />
             <Button
                 Grid.Row="6"
                 Grid.Column="1"
-                Text="Cancel"
+                Text="Cancelar"
                 Command="{Binding CANCEL_COMMAND}"
                 />
         </Grid>

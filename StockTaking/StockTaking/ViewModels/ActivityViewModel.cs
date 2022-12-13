@@ -52,7 +52,7 @@ namespace StockTaking.ViewModels
         {
             if (App.CurrentUser.User_Permission == "PRODUCTS-RIGHTS")
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "Atras");
                 return;
             }
             //
@@ -65,7 +65,7 @@ namespace StockTaking.ViewModels
         {
             if(App.CurrentUser.User_Permission == "PRODUCTS-RIGHTS")
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "Atras");
                 return;
             }
 

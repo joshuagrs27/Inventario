@@ -78,7 +78,7 @@ namespace StockTaking.ViewModels
         {
             if(App.CurrentUser.User_Name == User_A.User_Name)
             {
-                await App.Current.MainPage.DisplayAlert("Alert","Can not Delete User Whilst Logged In", "Back");
+                await App.Current.MainPage.DisplayAlert("Alerta","Nopuedes borrar usuario", "Atras");
             }
             else
             {
@@ -87,7 +87,7 @@ namespace StockTaking.ViewModels
                 //
                 //App.CurrentUser = null;
                 //
-                await App.Current.MainPage.DisplayAlert("Alert", User_A.User_Name + " Deleted", "Back");
+                await App.Current.MainPage.DisplayAlert("Alerta", User_A.User_Name + " Borrado", "Atras");
                 //
             }
 

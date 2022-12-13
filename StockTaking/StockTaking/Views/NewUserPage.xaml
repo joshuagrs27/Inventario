@@ -5,7 +5,7 @@
              x:Class="StockTaking.Views.NewUserPage"
              Shell.PresentationMode="ModalAnimated"
              Title="New User"
-              BackgroundColor="#f49fbd">
+              BackgroundColor="LightBlue">
 
     <ContentPage.BindingContext>
         <local:NewUserViewModel/>
@@ -52,7 +52,7 @@
             <Label
                 Grid.Row="2"
                 Grid.Column="0"
-                Text="Permissions"
+                Text="Permisos"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 TextColor="Black"
@@ -70,15 +70,17 @@
                 SelectedItem="{Binding ChosenPermission}"
                 />
             <Button
+                CornerRadius="10"
                 Grid.Row="3"
                 Grid.Column="0"
-                Text="save"
+                Text="Guardar"
                 Command="{Binding SAVE_USER_COMMAND}"
                 />
             <Button
+                CornerRadius="10"
                 Grid.Row="3"
                 Grid.Column="1"
-                Text="cancel"
+                Text="Cancelar"
                 Command="{Binding CANCEL_COMMAND}"
                 />
 

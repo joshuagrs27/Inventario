@@ -36,8 +36,8 @@ namespace StockTaking.ViewModels
             ProductList = tempProducts;
             //
             IList<Models.Picker> tempValues = new List<Models.Picker>();
-            tempValues.Add(new Models.Picker { Value_Data = "IN" });
-            tempValues.Add(new Models.Picker { Value_Data = "OUT" });
+            tempValues.Add(new Models.Picker { Value_Data = "Entrada" });
+            tempValues.Add(new Models.Picker { Value_Data = "Salida" });
             TransactionsTypes = new ObservableCollection<Models.Picker>();
             TransactionsTypes = tempValues;
         }
@@ -155,7 +155,7 @@ namespace StockTaking.ViewModels
                 //
                 UpdateProduct_F(ProductSelected);
                 //
-                await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                await App.Current.MainPage.DisplayAlert("Exito", "Transaccion guardada", "ok");
                 //
                 Cancel_F();
             }
@@ -168,25 +168,25 @@ namespace StockTaking.ViewModels
             if (ChosenTransaction == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Transaction Type", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige tipo de transaccion", "Atras");
                 return ans2;
             }
             if (NewDate == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Date", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige fecha", "Atras");
                 return ans2;
             }
             if (ProductSelected == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Product", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige un producto", "Atras");
                 return ans2;
             }
             if (Amount <= 0)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Enter amount", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Ingresa cantidad", "Atras");
                 return ans2;
             }
             //await App.Current.MainPage.DisplayAlert("Success", "Product Successfully Saved", "Ok");
@@ -205,11 +205,11 @@ namespace StockTaking.ViewModels
             affectedProduct.Product_Current_Stock = affectedProduct.Product_Current_Stock + Convert.ToInt32(Amount);
             if (affectedProduct.Product_Current_Stock <= 50)
             {
-                affectedProduct.Product_Level = "LOW";
+                affectedProduct.Product_Level = "Bajo";
             }
             if(affectedProduct.Product_Current_Stock > 50)
             {
-                affectedProduct.Product_Level = "HIGH";
+                affectedProduct.Product_Level = "Alto";
             }
             //
             await App.Database.EditProductAsync(affectedProduct);

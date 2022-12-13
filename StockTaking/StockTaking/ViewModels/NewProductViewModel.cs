@@ -73,12 +73,12 @@ namespace StockTaking.ViewModels
                 productObj.Product_Description = ProductDescription;
                 productObj.Product_CompanyID = App.CurrentCompany.Company_Id;
                 productObj.Product_Current_Stock = 0;
-                productObj.Product_Level = "EMPTY";
+                productObj.Product_Level = "Vacio";
                 productObj.Product_Low_Level = ProductLowLevel;
                 //Save the Administrator to the Database
                 await App.Database.SaveProductAsync(productObj);
                 //
-                await App.Current.MainPage.DisplayAlert("Success", "Product Successfully Saved", "Ok");
+                await App.Current.MainPage.DisplayAlert("Exito", "Producto guardado", "Ok");
                 //
                 // This will pop the current page off the navigation stack
                 await Shell.Current.GoToAsync("..");
@@ -93,19 +93,19 @@ namespace StockTaking.ViewModels
             if(ProductName == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto necesita nombre", "Ok");
                 return ans2;
             }
             if(ProductDescription == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Description Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto necesita decripcion", "Ok");
                 return ans2;
             }
             if (ProductLowLevel <= 0)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Product Low Level Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Producto en bajo nivel", "Ok");
                 return ans2;
             }
             return ans2;

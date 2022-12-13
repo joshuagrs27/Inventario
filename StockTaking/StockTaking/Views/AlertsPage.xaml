@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.AlertsPage"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="White">
 
 
     <ContentPage.BindingContext>
@@ -18,12 +18,12 @@
                     <DataTemplate>
                         <Frame
                             BorderColor="Black"
-                            BackgroundColor="#ad0553">
+                            BackgroundColor="SteelBlue">
                             <StackLayout Orientation="Vertical">
                                 <Label
                                     HorizontalOptions="Center"
                                     TextColor="#757475"
-                                    Text="Product Name:"/>
+                                    Text="Nombre de producto:"/>
                                 <Label
                                     HorizontalOptions="Center"
                                     TextColor="Black"
@@ -31,7 +31,7 @@
                                 <Label
                                     HorizontalOptions="Center"
                                     TextColor="#757475"
-                                    Text="Stock Count:"/>
+                                    Text="Control inventario:"/>
                                 <Label
                                     HorizontalOptions="Center"
                                     TextColor="Black"

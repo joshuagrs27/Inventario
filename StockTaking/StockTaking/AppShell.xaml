@@ -88,13 +88,13 @@
     <FlyoutItem Title="Stock" Icon="icon_feed.png">
         <ShellContent Route="ProductsPage" ContentTemplate="{DataTemplate local:ProductsPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Activity" Icon="icon_feed.png">
+    <FlyoutItem Title="Actividad" Icon="icon_feed.png">
         <ShellContent Route="ActivityPage" ContentTemplate="{DataTemplate local:ActivityPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Alerts" Icon="icon_feed.png">
+    <FlyoutItem Title="Alertas" Icon="icon_feed.png">
         <ShellContent Route="AlertsPage" ContentTemplate="{DataTemplate local:AlertsPage}" />
     </FlyoutItem>
-    <FlyoutItem Title="Settings" Icon="icon_feed.png">
+    <FlyoutItem Title="Configuracion" Icon="icon_feed.png">
         <ShellContent Route="SettingsPage" ContentTemplate="{DataTemplate local:SettingsPage}" />
     </FlyoutItem>
   

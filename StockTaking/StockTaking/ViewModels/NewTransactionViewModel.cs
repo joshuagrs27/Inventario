@@ -130,8 +130,8 @@ namespace StockTaking.ViewModels
         public void MakePickerData_F()
         {
             IList<Models.Picker> tempValues = new List<Models.Picker>();
-            tempValues.Add(new Models.Picker { Value_Data = "IN" });
-            tempValues.Add(new Models.Picker { Value_Data = "OUT" });
+            tempValues.Add(new Models.Picker { Value_Data = "Entrada" });
+            tempValues.Add(new Models.Picker { Value_Data = "Salida" });
             TransactionsTypes = new ObservableCollection<Models.Picker>();
             TransactionsTypes = tempValues;
         }
@@ -161,11 +161,11 @@ namespace StockTaking.ViewModels
 
                         UpdateProduct_F(ProductSelected, transObj);
 
-                        await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                        await App.Current.MainPage.DisplayAlert("Exito", "Transaccion guardada", "ok");
                     }
                     else
                     {
-                        await App.Current.MainPage.DisplayAlert("Alert", "Transaction failed,Stock Level Low", "ok");
+                        await App.Current.MainPage.DisplayAlert("Alerta", "La transaccion fallo", "ok");
                     }
                 }
                 //
@@ -176,7 +176,7 @@ namespace StockTaking.ViewModels
 
                     UpdateProduct_F(ProductSelected, transObj);
 
-                    await App.Current.MainPage.DisplayAlert("Success", "Transaction Saved", "ok");
+                    await App.Current.MainPage.DisplayAlert("Exito", "Transaccion guardada", "ok");
                     
                 }
                 //
@@ -224,25 +224,25 @@ namespace StockTaking.ViewModels
             if(ChosenTransaction == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Transaction Type", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige tipo transaccion", "Atras");
                 return ans2;
             }
             if(NewDate == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Date", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige fecha", "Atras");
                 return ans2;
             }
             if (ProductSelected == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Choose Product", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Elige producto", "Atras");
                 return ans2;
             }
             if (Amount == null)
             {
                 ans2 = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Enter amount", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Ingresa cantidad", "Atras");
                 return ans2;
             }
             //await App.Current.MainPage.DisplayAlert("Success", "Product Successfully Saved", "Ok");

@@ -109,11 +109,11 @@ namespace StockTaking.ViewModels
                     newUserObj.User_Company_ID = newCompanyObj.Company_Id;
                     newUserObj.User_Name = newCompanyObj.Company_Admin_Username;
                     newUserObj.User_Password = newCompanyObj.Company_Admin_Password;
-                    newUserObj.User_Permission = "ADMIN-RIGHTS";
+                    newUserObj.User_Permission = "Administrador";
                     //Save the Administrator to the Database
                     await App.Database.SaveUserAsync(newUserObj);
                     //
-                    await App.Current.MainPage.DisplayAlert("Success", "Company Successfully Saved", "Ok");
+                    await App.Current.MainPage.DisplayAlert("Exito", "Empresa guardada", "Ok");
                     //
                     // This will pop the current page off the navigation stack
                     await Shell.Current.GoToAsync("..");
@@ -142,7 +142,7 @@ namespace StockTaking.ViewModels
                 if(company.Company_Name == CompanyName)
                 {
                     pass = false;
-                    await App.Current.MainPage.DisplayAlert("Alert", "Company Already Exists", "Ok");
+                    await App.Current.MainPage.DisplayAlert("Alerta", "La empresa ya existe", "Ok");
                     return pass;
                 }
             }
@@ -158,37 +158,37 @@ namespace StockTaking.ViewModels
             if(CompanyName == null)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "La empresa necesita nombre", "Ok");
                 return pass;
             }
             if(CompanyDescription == null)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Company Description Name Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "La empresa necesita descripcion", "Ok");
                 return pass;
             }
             if(CompanyAdminUsername == null)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Administrator Username Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Necesitas Username de Administrador", "Ok");
                 return pass;
             }
             if(CompanyAdminUserpassword == null)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Administrator password Needed", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Necesitas un password para Administrador", "Ok");
                 return pass;
             }
             if(ConfirmPassword == null)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Confirm Password", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Confirmar Password", "Ok");
                 return pass;
             }
             if(CompanyAdminUserpassword != ConfirmPassword)
             {
                 pass = false;
-                await App.Current.MainPage.DisplayAlert("Alert", "Passwords don't Match!", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Passwords no coinciden", "Ok");
                 return pass;
             }
             //

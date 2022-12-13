@@ -57,7 +57,7 @@
                 <Label
                 Grid.Row="2"
                 Grid.Column="0"
-                Text="User Permission"
+                Text="Permiso User "
                 TextColor="Black"
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
@@ -73,10 +73,10 @@
                 />
 
             <!--Buttons For Delete and Back-->
-                <Button
+                <Button CornerRadius="50"
                 Grid.Row="3"
                 Grid.Column="0"
-                Text="Delete"
+                Text="Borrar"
                 Command="{Binding DELETE_PRODUCT_COMMAND}"
                 />
                 <Button

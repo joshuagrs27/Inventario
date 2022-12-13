@@ -3,12 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.SettingsPage"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="White">
 
 
     <!--Toolbar Buttons-->
     <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add User" Command="{Binding ADD_NEW_USER_COMMAND}" />
+        <ToolbarItem Text="Añadir Usuario" Command="{Binding ADD_NEW_USER_COMMAND}" />
     </ContentPage.ToolbarItems>
     
     <ContentPage.BindingContext>
@@ -24,7 +24,7 @@
                 Grid.Row="0"
                 Orientation="Horizontal">
                 <Label
-                    Text="Name:"
+                    Text="Nombre:"
                     TextColor="Black"/>
                 <Label
                     Text="{Binding UserA.User_Name}"/>

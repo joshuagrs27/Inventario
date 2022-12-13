@@ -94,7 +94,7 @@ namespace StockTaking.ViewModels
             {
                 source.Add(new ChartEntry(100)
                 {
-                    Label = "Empty",
+                    Label = "Vacio",
                     ValueLabelColor = SKColor.Parse("#b3b3b3"),
                     ValueLabel = "0",
                     Color = SKColor.Parse("#b3b3b3")
@@ -138,8 +138,8 @@ namespace StockTaking.ViewModels
             string temp = String.Join(String.Empty, tempStrings.ToArray());
             if (tempStrings.Count > 0)
             {
-                await App.Current.MainPage.DisplayAlert("Warning", 
-                    "The following Products are Low: "+ " " + temp +" ," +" :Got to the Alerts Page for More", 
+                await App.Current.MainPage.DisplayAlert("Peligro", 
+                    "El siguiente producto es poco: "+ " " + temp +" ," +" :ve a la pagina de alerta para mas", 
                     "ok");
             }
         }

@@ -66,12 +66,12 @@ namespace StockTaking.ViewModels
             bool ans = await Valid_F();
             if (ans)
             {
-                await App.Current.MainPage.DisplayAlert("Successful", "Logged In", "Ok");
+                await App.Current.MainPage.DisplayAlert("Exito", "Logueado", "Ok");
                 //
                 await Shell.Current.GoToAsync($"//{nameof(MainPage)}");
             }
             else{
-                await App.Current.MainPage.DisplayAlert("Alert", "User Does Not Exist", "Try Again");
+                await App.Current.MainPage.DisplayAlert("Alert", "User no existe", "Intentalo de nuevo");
             }
         }
         public async void Cancel_F()
@@ -151,10 +151,10 @@ namespace StockTaking.ViewModels
                 //
                 App.CurrentCompany = null;
                 //
-                await App.Current.MainPage.DisplayAlert("Success", ValidCompany.Company_Name + " Deleted", "Back");
+                await App.Current.MainPage.DisplayAlert("Exito", ValidCompany.Company_Name + " Borrado", "Atras");
             }
             else{
-                await App.Current.MainPage.DisplayAlert("Alert", "You dont have permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "Atras");
             }
            
             //

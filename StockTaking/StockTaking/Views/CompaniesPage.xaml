@@ -3,35 +3,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              xmlns:local="clr-namespace:StockTaking.ViewModels"
              x:Class="StockTaking.Views.CompaniesPage"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="White">
 
 
-    <!--Binding Context-->
+    <!--Binding Context PAG1-->
     <ContentPage.BindingContext>
         <local:CompaniesViewModel/>
     </ContentPage.BindingContext>
     
     <!---->
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add Company" Command="{Binding ADDNEWCOMPANY}" />
+    <ContentPage.ToolbarItems  >
+        <ToolbarItem Text="Añadir Empresa" Command="{Binding ADDNEWCOMPANY}" />
     </ContentPage.ToolbarItems>
 
     <ContentPage.Content>
         <Grid
             RowDefinitions="*">
             <CollectionView
-                Grid.Row="0"
+                Grid.Row="0" Margin="20,10,20,10"
                 ItemsSource="{Binding CompanyCollection}">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
                         <Frame 
                             HasShadow="True"
-                            BorderColor="Black"
+                            BorderColor="SteelBlue"
                             Padding="1" 
                             HeightRequest="100" 
-                            BackgroundColor="#ad0553">
-                            <Frame.GestureRecognizers>
-                                <TapGestureRecognizer
+                            BackgroundColor="LightSteelBlue" CornerRadius="20" >
+                            <Frame.GestureRecognizers  >
+                                <TapGestureRecognizer 
                                         NumberOfTapsRequired="1"
                                         Command="{Binding Source={RelativeSource AncestorType={x:Type local:CompaniesViewModel}}, Path=ItemTapped}"
                                         CommandParameter="{Binding .}">

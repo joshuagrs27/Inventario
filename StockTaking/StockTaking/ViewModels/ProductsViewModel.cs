@@ -55,7 +55,7 @@ namespace StockTaking.ViewModels
         {
             if (App.CurrentUser.User_Permission == "TRANSACTION-RIGHTS")
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "Atras");
                 return;
             }
             //Go to new Company Page
@@ -67,7 +67,7 @@ namespace StockTaking.ViewModels
         {
             if (App.CurrentUser.User_Permission == "TRANSACTION-RIGHTS")
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "atras");
                 return;
             }
             //Set the Global Current Product

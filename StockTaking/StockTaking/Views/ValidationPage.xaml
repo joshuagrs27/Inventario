@@ -5,7 +5,7 @@
              x:Class="StockTaking.Views.ValidationPage"
              Shell.PresentationMode="ModalAnimated"
              Title="Login"
-             BackgroundColor="#f49fbd">
+             BackgroundColor="LightBlue">
 
     <ContentPage.BindingContext>
         <local:ValidationViewModel/>
@@ -35,13 +35,16 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 />
-            <Entry
-                Grid.Row="1"
+            <Frame Grid.Row="1"
                 Grid.Column="1"
-                VerticalOptions="Center"
+                VerticalOptions="Center" BackgroundColor="White" CornerRadius="10"  Margin="10">
+                <Entry
+                
                 TextColor="Black"
                 Text="{Binding Username}"
                 />
+            </Frame>
+           
             <!--Label & Entry for Password-->
             <Label
                 Grid.Row="2"
@@ -51,33 +54,36 @@
                 HorizontalOptions="Center"
                 VerticalOptions="Center"
                 />
-            <Entry
-                Grid.Row="2"
+            <Frame BackgroundColor="White" CornerRadius="10"  Margin="10"  Grid.Row="2"
                 Grid.Column="1"
-                VerticalOptions="Center"
+                VerticalOptions="Center">
+                <Entry
+               
                 TextColor="Black"
                 Text="{Binding Userpassword}"
                 IsPassword="True"
                 />
+            </Frame>
+           
             <!--Buttons for Logging In or Cncelling-->
-            <Button
+            <Button CornerRadius="20" Padding="10" Margin="5"
                 Grid.Row="3"
                 Grid.Column="0"
                 Text="Login"
                 Command="{Binding LOGIN_COMMAND}"
                 />
-            <Button
+            <Button CornerRadius="20" Padding="10" Margin="5"
                 Grid.Row="3"
                 Grid.Column="1"
-                Text="Cancel"
+                Text="Cancelar"
                 Command="{Binding CANCEL_COMMAND}"
                 />
-            <Button
+            <Button CornerRadius="20" Padding="10" Margin="5"
                 Grid.Row="4"
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
-                Text="Delete Company"
-                BackgroundColor="Red"
+                Text="Borrar Empresa"
+                BackgroundColor="SteelBlue"
                 Command="{Binding DELETE_COMPANY_COMMAND}"
                 />
 

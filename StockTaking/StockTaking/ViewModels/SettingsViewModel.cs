@@ -80,7 +80,7 @@ namespace StockTaking.ViewModels
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "Only Administrator Can Add Users", "Ok");
+                await App.Current.MainPage.DisplayAlert("Alert", "El administrado añade los usuarios", "Ok");
             }
         }
         //
@@ -96,7 +96,7 @@ namespace StockTaking.ViewModels
             }
             else
             {
-                await App.Current.MainPage.DisplayAlert("Alert", "You Dont Have Permission", "back");
+                await App.Current.MainPage.DisplayAlert("Alerta", "Tu no tienes permiso", "Atras");
             }
 
         }
